@@ -13,3 +13,48 @@
  *
  * He answers 'Whatever.' to anything else.
  */
+
+function hey(str) {
+  let arr = str
+    .toString()
+    .replace(/\n/g, "")
+    .replace(/\r/g, "")
+    .replace(/\t/g, "")
+    .replace(/ /g, "")
+    .replace(/,/g, "")
+    .split("");
+  let arr2 = str
+    .toString()
+    .replace(/\n/g, "")
+    .replace(/\r/g, "")
+    .replace(/\t/g, "")
+    .replace(/ /g, "")
+    .replace(/,/g, "")
+    .replace("?", "");
+  console.log(arr);
+  console.log(arr2);
+
+  if (
+    arr2 === arr2.toUpperCase() &&
+    arr[arr.length - 1] === "?" &&
+    !/[^a-zA-Z]/.test(arr2) == true
+  ) {
+    return "Calm down, I know what I'm doing!";
+  } else if (arr[arr.length - 1] === "?") {
+    return "Sure.";
+  } else if (
+    arr2 === arr2.toUpperCase() &&
+    arr.length !== 0 &&
+    arr2 != parseInt(arr2)
+  ) {
+    return "Whoa, chill out!";
+  }
+
+  if (arr.length === 0) {
+    return "Fine. Be that way!";
+  } else {
+    return "Whatever.";
+  }
+}
+
+module.exports = hey;

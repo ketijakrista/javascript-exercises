@@ -68,9 +68,74 @@
  *      32
  */
 
-class WordProblem {}
+class WordProblem {
+  constructor(_question) {
+    this.question = _question;
+  }
 
-class ArgumentError {}
+  answer() {
+    let str = this.question
+      .replace("?", "")
+      .replace(/plus/g, "+")
+      .replace(/divided by/g, "/")
+      .replace(/minus/g, "-")
+      .replace(/multiplied by/g, "*");
+
+    let arr1 = str.split(" ").splice(2);
+    let str1 = arr1.join("").replace("--", "+");
+    let arr2 = str1.split("");
+
+    let letters = [];
+
+    //Checks if there are letters in the array
+    for (let i = 0; i < arr2.length; i++) {
+      if (
+        arr2[i] !== "+" &&
+        arr2[i] !== "-" &&
+        arr2[i] !== "/" &&
+        arr2[i] !== "*" &&
+        arr2[i] !== "0" &&
+        arr2[i] !== "1" &&
+        arr2[i] !== "2" &&
+        arr2[i] !== "3" &&
+        arr2[i] !== "4" &&
+        arr2[i] !== "5" &&
+        arr2[i] !== "6" &&
+        arr2[i] !== "7" &&
+        arr2[i] !== "8" &&
+        arr2[i] !== "9"
+      ) {
+        letters.push("isLetter");
+      } else {
+        letters.push("notLetter");
+      }
+    }
+
+    //Evaluates what to return
+    if (letters.includes("isLetter")) {
+      throw new ArgumentError("ArgumentError");
+    } else if (arr2.length < 3) {
+      throw new ArgumentError("ArgumentError");
+    } else if (arr1.length > 3) {
+      let arr3 = arr1.splice(3); //otras izteiksmes elementu array
+      let str2 = arr1.join(""); //pirma izteiksme
+      let num = eval(str2); //pirmas izteiksmes rezultats
+      arr3.unshift(num);
+      let str3 = arr3.join("").replace("--", "+");
+
+      return eval(str3);
+    } else {
+      return eval(str1);
+    }
+  }
+}
+
+class ArgumentError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ArgumentError";
+  }
+}
 
 module.exports = {
   WordProblem,

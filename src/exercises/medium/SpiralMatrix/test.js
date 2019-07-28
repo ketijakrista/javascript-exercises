@@ -3,28 +3,28 @@ const SpiralMatrix = require("./index");
 describe("Spiral Matrix", () => {
   test("empty spiral", () => {
     const expected = [];
-    const actual = SpiralMatrix.ofSize(0);
+    const actual = SpiralMatrix(0);
 
     expect(actual).toEqual(expected);
   });
 
   test("trivial spiral", () => {
     const expected = [[1]];
-    const actual = SpiralMatrix.ofSize(1);
+    const actual = SpiralMatrix(1);
 
     expect(actual).toEqual(expected);
   });
 
   test("spiral of size 2", () => {
     const expected = [[1, 2], [4, 3]];
-    const actual = SpiralMatrix.ofSize(2);
+    const actual = SpiralMatrix(2);
 
     expect(actual).toEqual(expected);
   });
 
   test("spiral of size 3", () => {
     const expected = [[1, 2, 3], [8, 9, 4], [7, 6, 5]];
-    const actual = SpiralMatrix.ofSize(3);
+    const actual = SpiralMatrix(3);
 
     expect(actual).toEqual(expected);
   });
@@ -36,7 +36,7 @@ describe("Spiral Matrix", () => {
       [11, 16, 15, 6],
       [10, 9, 8, 7]
     ];
-    const actual = SpiralMatrix.ofSize(4);
+    const actual = SpiralMatrix(4);
 
     expect(actual).toEqual(expected);
   });
@@ -49,7 +49,7 @@ describe("Spiral Matrix", () => {
       [14, 23, 22, 21, 8],
       [13, 12, 11, 10, 9]
     ];
-    const actual = SpiralMatrix.ofSize(5);
+    const actual = SpiralMatrix(5);
 
     expect(expected).toEqual(actual);
   });

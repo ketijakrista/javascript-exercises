@@ -31,8 +31,6 @@ function hey(str) {
     .replace(/ /g, "")
     .replace(/,/g, "")
     .replace("?", "");
-  console.log(arr);
-  console.log(arr2);
 
   if (
     arr2 === arr2.toUpperCase() &&
